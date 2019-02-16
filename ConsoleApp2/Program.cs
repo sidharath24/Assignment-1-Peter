@@ -10,6 +10,7 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            CountrySide c = new CountrySide();
         }
     }
     class UsingRecursion
@@ -43,6 +44,33 @@ namespace ConsoleApp2
         Village Uster;
         Village Schvenig;
 
+        public void Run()
+        {
+            this.CreateMap();
+        }
+
+        public void CreateMap()
+        {
+            Maeland = new Village("Maeland", false);
+            Alst = new Village("Alst", false);
+            Schvenig = new Village("Schvenig", true);
+
+            Alst.east = Schvenig;
+            Alst.distanceToNextVillage = 14;
+
+            Alst.west = Wessig;
+            Alst.distanceToNextVillage = 19;
+        }
+
+        public Village traverse(Village startingPoint)
+        {
+            if(startingPoint.isAstrildgeHere)
+            {
+                Console.WriteLine("Huyaa!!! Hugi found astrilde! He found her in village {0}",curentVillage.VillageName);
+            }
+
+        }
+
 
         class Village
         {
@@ -58,6 +86,8 @@ namespace ConsoleApp2
             public int distanceToNextVillage;
             public int distanceToPreviousVillage;
             public bool isAstrildgeHere;
+
+           
         }
     }
 }
